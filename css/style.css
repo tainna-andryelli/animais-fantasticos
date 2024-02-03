@@ -202,3 +202,63 @@ body {
   padding: 20px;
   font-weight: bold;
 }
+
+@media (max-width: 700px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  .menu {
+    margin-top: 0;
+  }
+
+  .menu,
+  .grid-section,
+  .copy {
+    grid-column: 1;
+  }
+
+  .titulo {
+    font-size: 3rem;
+  }
+
+  .grid-section {
+    grid-template-columns: 100px 1fr;
+    gap: 10px;
+  }
+
+  .animais-lista {
+    grid-column: 1;
+  }
+
+  .faq-lista,
+  .dados,
+  .contato .mapa {
+    grid-column: 1/3;
+  }
+
+  .copy {
+    margin-bottom: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .menu li a {
+    font-size: 1rem;
+  }
+
+  .titulo {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+
+  .contato {
+    display: block;
+    padding: 20px;
+  }
+
+  .contato .mapa {
+    margin-bottom: 16px;
+  }
+}
