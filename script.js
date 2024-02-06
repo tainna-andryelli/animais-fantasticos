@@ -43,3 +43,30 @@ function initAccordion() {
 }
 
 initAccordion();
+
+function initSmoothScroll() {
+  const internalLinks = document.querySelectorAll('.menu a[href^="#"]');
+
+  function scrollToSection(event) {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute("href");
+    const section = document.querySelector(href);
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    // alternative form
+    // const top = section.offsetTop;
+    // window.scrollTo({
+    //   top: top,
+    //   behavior: "smooth",
+    // });
+  }
+
+  internalLinks.forEach((item) => {
+    item.addEventListener("click", scrollToSection);
+  });
+}
+
+initSmoothScroll();
