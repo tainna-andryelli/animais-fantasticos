@@ -1,5 +1,4 @@
-// Tab Navegation
-function initTabNav() {
+function initTabNavegation() {
   const tabMenu = document.querySelectorAll(".js-tabmenu li");
   const tabContent = document.querySelectorAll(".js-tabcontent section");
 
@@ -21,8 +20,7 @@ function initTabNav() {
     });
   }
 }
-
-initTabNav();
+initTabNavegation();
 
 function initAccordion() {
   const accordionList = document.querySelectorAll(".js-accordion dt");
@@ -41,7 +39,6 @@ function initAccordion() {
     });
   }
 }
-
 initAccordion();
 
 function initSmoothScroll() {
@@ -68,5 +65,26 @@ function initSmoothScroll() {
     item.addEventListener("click", scrollToSection);
   });
 }
-
 initSmoothScroll();
+
+function initScrollAnimation() {
+  const sections = document.querySelectorAll(".js-scroll");
+
+  if (sections.length) {
+    const animeReference = window.innerHeight * 0.6;
+
+    function animateScroll() {
+      sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const isSectionVisible = sectionTop - animeReference < 0;
+        if (isSectionVisible) {
+          section.classList.add("active");
+        }
+      });
+    }
+
+    animateScroll();
+    window.addEventListener("scroll", animateScroll);
+  }
+}
+initScrollAnimation();
